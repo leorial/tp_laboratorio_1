@@ -1,0 +1,246 @@
+
+#include "input.h"
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+int Get_Int (char message[], char errorMessage[])
+{
+	char auxiliar[256];
+	int result;
+
+	printf ("%s", message);
+	fflush(stdin);
+	scanf("%s", auxiliar);
+
+	while (Validate_Int(auxiliar) == 0)
+	{
+		printf("%s", errorMessage);
+		fflush(stdin);
+		scanf("%s", auxiliar);
+	}
+
+	result = atoi(auxiliar);
+
+	return result;
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+int Validate_Int (char numero[])
+{
+	int result;
+
+	result = Validate_Digit (numero);
+
+	return result;
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+int Validate_Digit (char numero[])
+{
+    int result;
+    int i;
+
+    result = 1;
+
+	for (i=0; i<strlen(numero); i++)
+	{
+		if(!isdigit(numero[i]) && numero[i] != '-')
+		{
+			result = 0;
+			break;
+		}
+		else
+		{
+			if(numero[i] == '-' && i != 0)
+			{
+				result = 0;
+			    break;
+			}
+		}
+	}
+	return result;
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+char Get_Char(char messege[], char errorMessege[])
+{
+	char auxiliar[256];
+	char rtn;
+
+	printf("%s", messege);
+	fflush(stdin);
+	scanf ("%s", auxiliar);
+
+    while (strlen(auxiliar)>1 || !isalpha(auxiliar[0]))
+    {
+        printf("%s", errorMessege);
+        fflush(stdin);
+	    scanf ("%s", auxiliar);
+    }
+
+	rtn = auxiliar[0];
+	rtn = tolower(rtn);
+
+	return rtn;
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+void Get_String(char messege[], char errorMessege[], char string[], int tam)
+{
+	char auxiliar[256];
+
+	printf("%s", messege);
+	fflush(stdin);
+	scanf("%[^\n]", auxiliar);
+
+	while (strlen(auxiliar) > tam || strlen(auxiliar) == 0)
+	{
+		printf("Error! cantidad de caracteres ingresados incorrectos. MAX.%d.\n", tam);
+		printf("%s", errorMessege);
+		fflush(stdin);
+		scanf("%[^\n]", auxiliar);
+	}
+	strcpy(string, auxiliar);
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+float Get_Float (char message[], char errorMessage[])
+{
+	char auxiliar[256];
+	float result;
+
+	printf ("%s", message);
+	fflush(stdin);
+	scanf("%s", auxiliar);
+
+	while (Validate_Float(auxiliar) == 0)
+	{
+		printf("%s", errorMessage);
+		fflush(stdin);
+		scanf("%s", auxiliar);
+	}
+
+	result = atof(auxiliar);
+
+	return result;
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+int Validate_Float (char numero[])
+{
+	int i;
+    int result;
+    int flag;
+
+    flag = 0;
+    result = 1;
+
+    for (i=0; i<strlen(numero); i++)
+	{
+		if(!isdigit(numero[i]) && numero[i] != '.' && numero[i] != '-')
+		{
+			result = 0;
+			break;
+		}
+		else
+		{
+			if(numero[i] == '.')
+			{
+				flag++;
+			}
+		}
+		if(flag>1)
+		{
+			result = 0;
+			break;
+		}
+
+		if(i !=0 && numero[i] == '-')
+		{
+		    result = 0;
+			break;
+		}
+	}
+	return result;
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+int Get_IntMinMax (char message[], char errorMessage[], int min, int max)
+{
+	char auxiliar[256];
+	int result;
+
+	printf ("%s", message);
+	fflush(stdin);
+	scanf("%s", auxiliar);
+
+	while (Validate_IntMinMax(auxiliar, min, max) == 0)
+	{
+		printf("%s", errorMessage);
+		fflush(stdin);
+		scanf("%s", auxiliar);
+	}
+
+	result = atoi(auxiliar);
+
+	return result;
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+int Validate_IntMinMax (char numero[], int min, int max)
+{
+	int result;
+
+	result = Validate_Digit (numero);
+
+    if (result == 1)
+    {
+        result = Validate_MinMax (numero, min, max);
+    }
+
+	return result;
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+int Validate_MinMax (char numero[], int min, int max)
+{
+    int rtn;
+    int entero;
+
+    rtn = 1;
+
+    entero = atoi(numero);
+
+    if(entero>max || entero<min)
+	{
+		rtn = 0;
+	}
+	return rtn;
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+int Validate_YesOrNo(char messege[], char errorMessege[])
+{
+	int rtn;
+	char opcion;
+
+    rtn = 0;
+	opcion = Get_Char(messege, errorMessege);
+	opcion = tolower(opcion);
+
+	while (opcion != 's' && opcion != 'n')
+	{
+		printf("ERROR. indique una opcion correcta");
+		opcion = Get_Char(messege, errorMessege);
+		opcion = tolower(opcion);
+	}
+
+	if (opcion == 's')
+	{
+		rtn = 1;
+	}
+
+	return rtn;
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
