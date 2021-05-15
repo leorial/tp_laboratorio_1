@@ -1,7 +1,7 @@
 
 #include "menu.h"
 
-void Show_Menu (Employee listaEmpleados[], int size)
+void Show_Menu (Employee* listaEmpleados, int size)
 {
 
 	int opcion;
@@ -50,16 +50,16 @@ void Show_Menu (Employee listaEmpleados[], int size)
 		        {
 		    		if (Modificate_Employees (listaEmpleados, size) == 1)
 		            {
-		    			printf("el producto se modifico correctamente. \n");
+		    			printf("el empleado se modifico correctamente. \n");
 		            }
 		            else
 		            {
-		                printf("error. no se encontro el producto a modificar. \n");
+		                printf("error. no se encontro el empleado a modificar. \n");
 		            }
 		        }
 		        else
 		        {
-		            printf("error. para seleccionar esta opcion primero debe cargar algun trabajo. \n");
+		            printf("error. para seleccionar esta opcion primero debe cargar algun empleado. \n");
 		        }
 		        break;
 
@@ -68,16 +68,16 @@ void Show_Menu (Employee listaEmpleados[], int size)
 		        {
 		            if (removeEmployee(listaEmpleados, size) == 1)
 		            {
-		                printf("el producto se dio de baja correctamente. \n");
+		                printf("el empleado se dio de baja correctamente. \n");
 		            }
 		            else
 		            {
-		                printf("error. no se encontro el producto a dar de baja. \n");
+		                printf("error. no se encontro el empleado a dar de baja. \n");
 		            }
 		        }
 		        else
 		        {
-		            printf("error. para seleccionar esta opcion primero debe cargar algun trabajo. \n");
+		            printf("error. para seleccionar esta opcion primero debe cargar algun empleado. \n");
 		        }
 		        break;
 
@@ -88,14 +88,14 @@ void Show_Menu (Employee listaEmpleados[], int size)
 		        }
 		        else
 		        {
-		            printf("error. para seleccionar esta opcion primero debe cargar algun trabajo. \n");
+		            printf("error. para seleccionar esta opcion primero debe cargar algun empleado. \n");
 		        }
 		        break;
 		}
 	}while (opcion != -1);
 }
 
-void Show_SubMenu (Employee empleado[], int size)
+void Show_SubMenu (Employee* empleado, int size)
 {
 	int opcion;
 

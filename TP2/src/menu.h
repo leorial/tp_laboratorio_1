@@ -8,7 +8,7 @@
  * @brief muestra el menu principal en bucle hasta que se desee salir.
  * @param Employee lista de empleados
  * @param int tamaño de array
- */void Show_Menu (Employee[], int);
+ */void Show_Menu (Employee*, int);
 
  /**
    * @fn void Show_SubMenu(Employee[], int)
@@ -16,6 +16,6 @@
   * @param Employee lista de empleados
   * @param int tamaño de array
   */
-void Show_SubMenu (Employee[], int);
+void Show_SubMenu (Employee*, int);
 
 #endif /* MENU_H_ */

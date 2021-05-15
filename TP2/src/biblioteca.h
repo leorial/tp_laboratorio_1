@@ -9,7 +9,7 @@
  * @param Employee recibe un array de estructura
  * @param int recibe un entero como tamaño del array
  */
-void initEmployees (Employee[], int);
+void initEmployees (Employee*, int);
 
 /**
  * @fn void addEmployees(Employee[], int, int)
@@ -18,7 +18,7 @@ void initEmployees (Employee[], int);
  * @param int tamaño del array
  * @param int index en donde guardar el dato solicitado
  */
-void addEmployees (Employee[], int, int);
+void addEmployees (Employee*, int, int);
 
 /**
  * @fn int Search_Free(Employee[], int)
@@ -27,7 +27,7 @@ void addEmployees (Employee[], int, int);
  * @param int tamaño de array
  * @return retorna como entero el indice del array en donde aun no se cargaron datos
  */
-int Search_Free (Employee[], int);
+int Search_Free (Employee*, int);
 
 /**
  * @fn int findEmployeeById(char[], char[], Employee[], int)
@@ -38,7 +38,7 @@ int Search_Free (Employee[], int);
  * @param int tamaño de array
  * @return retorna como entero el indice del id buscado
  */
-int findEmployeeById (char[], char[], Employee[], int);
+int findEmployeeById (char*, char*, Employee*, int);
 
 /**
  * @fn void printEmployees(Employee[], int)
@@ -46,7 +46,7 @@ int findEmployeeById (char[], char[], Employee[], int);
  * @param Employee array lista de empleados
  * @param int tamaño de array
  */
-void printEmployees (Employee[], int);
+void printEmployees (Employee*, int);
 
 /**
  * @fn void printOneEmployee(Employee[], int, int)
@@ -55,7 +55,7 @@ void printEmployees (Employee[], int);
  * @param int tamaño de array
  * @param int indice en el array a mostrar
  */
-void printOneEmployee (Employee[], int, int);
+void printOneEmployee (Employee*, int, int);
 
 /**
  * @fn int Modificate_Employees(Employee[], int)
@@ -64,7 +64,7 @@ void printOneEmployee (Employee[], int, int);
  * @param int tamaño de array
  * @return retorna como entero 1 si se pudo realizar la modificacion y 0 si no se realizo
  */
-int Modificate_Employees (Employee[], int);
+int Modificate_Employees (Employee*, int);
 
 /**
  * @fn int removeEmployee(Employee[], int)
@@ -73,7 +73,7 @@ int Modificate_Employees (Employee[], int);
  * @param int tamaño de array
  * @return retorna como entero 1 si se pudo realizar la baja y 0 si no se realizo
  */
-int removeEmployee (Employee[], int);
+int removeEmployee (Employee*, int);
 
 /**
  * @fn void Show_EmployeesByLastNameAndSector(Employee[], int)
@@ -81,7 +81,7 @@ int removeEmployee (Employee[], int);
  * @param Employee array lista de empleados
  * @param int tamaño de array
  */
-void Show_EmployeesByLastNameAndSector (Employee[], int);
+void Show_EmployeesByLastNameAndSector (Employee*, int);
 
 /**
  * @fn void Clone_Array(Employee[], int, Employee[], int)
@@ -91,7 +91,7 @@ void Show_EmployeesByLastNameAndSector (Employee[], int);
  * @param Employee array auxiliar de lista de empleados
  * @param int tamaño de array
  */
-void Clone_Array (Employee[], int, Employee[], int);
+void Clone_Array (Employee*, int, Employee*, int);
 
 /**
  * @fn void sortEmployees(Employee[], int, int)
@@ -100,7 +100,7 @@ void Clone_Array (Employee[], int, Employee[], int);
  * @param int tamaño de array
  * @param int entero que demarca la forma en que se ordenada. 1 para ascendente y 2 para descendente
  */
-void sortEmployees (Employee[], int, int);
+void sortEmployees (Employee*, int, int);
 
 /**
  * @fn void Show_AveregeAndTotalSalary(Employee[], int)
@@ -108,7 +108,7 @@ void sortEmployees (Employee[], int, int);
  * @param Employee array lista de empleados
  * @param int tamaño de array
  */
-void Show_AveregeAndTotalSalary (Employee[], int);
+void Show_AveregeAndTotalSalary (Employee*, int);
 
 
 #endif /* BIBLIOTECA_H_ */

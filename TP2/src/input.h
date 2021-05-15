@@ -16,7 +16,7 @@
  * @param char mensaje de error volviendo a solicitar el numero.
  * @return int devuelve le numero entero ingresado.
  */
-int Get_Int (char[], char[]);
+int Get_Int (char*, char*);
 
 /**
  * @fn char Get_Char(char[], char[])
@@ -65,7 +65,7 @@ int Get_IntMinMax (char[], char[], int, int);
  * @param char recibe un numero en forma de string
  * @return int retorna un numero entero. 1 si pasa la validacion de numero entero, caso contrario 0.
  */
-int Validate_Int (char[]);
+int Validate_Int (char*);
 
 /**
  * @fn int Validate_Digit (char[])
@@ -73,7 +73,7 @@ int Validate_Int (char[]);
  * @param char recibe un numero en forma de string
  * @return int retorna un numero entero. 1 si pasa la validacion de numero entero, caso contrario 0.
  */
-int Validate_Digit (char[]);
+int Validate_Digit (char*);
 
 /**
  * @fn float Validate_Float(char[])
